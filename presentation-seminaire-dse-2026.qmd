@@ -1,17 +1,15 @@
 ---
-title: Onyxia
+title: IA générative
 subtitle: |
-  **[The open source\
-  cloud native\
-  data science platform]{.orange}**
+  **[Clarifier IA, Machine Learning, Deep Learning\
+  et IA générative]{.orange}**
 author: |
-  [InseeFrLab](https://github.com/InseeFrLab)
+  Séminaire DSE 2026
 date: today
 slide-number: true
 footer: |
-  **[onyxia.sh](https://www.onyxia.sh)**
-# uncomment for French presentations:
-#lang: fr
+  **Séminaire DSE 2026 — IA générative**
+lang: fr
 # for blind readers:
 slide-tone: true
 # for @olevitt:
@@ -29,31 +27,200 @@ editor:
   render-on-save: true
 ---
 
-## How to use this template?
+## Pourquoi commencer par clarifier ?
 
-1. You need [Quarto](https://quarto.org/) and great news!  
-   Quarto is already installed in the
-   [VSCode service](https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/vscode?autoLaunch=true)
+::: {.incremental}
+- Les mots **IA**, **ML**, **DL** et **IA générative** sont souvent utilisés comme synonymes.
+- En réalité, ils décrivent des **périmètres imbriqués**.
+- Cette clarification évite deux pièges :
+  - surestimer ce que « l'IA » sait faire ;
+  - sous-estimer les usages déjà matures du ML et du DL.
+:::
 
-. . .
+## Vue d'ensemble : un modèle en inclusion
 
-2. ``` bash
-   quarto use template InseeFrLab/onyxia-quarto
-   ```
+::: {.fragment}
+L'IA générative n'est pas « toute l'IA » : c'est un **sous-ensemble spécialisé**, fondé sur des techniques de deep learning.
+:::
 
-. . .
+```{=html}
+<style>
+.inclusion-diagram {
+  position: relative;
+  width: min(760px, 92vw);
+  height: 500px;
+  margin: 0 auto;
+  font-family: var(--r-main-font, sans-serif);
+}
+.inclusion-diagram .circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  color: #1f2937;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.inclusion-diagram .circle span {
+  display: block;
+  padding-top: 1rem;
+}
+.inclusion-diagram .ai {
+  inset: 0;
+  background: rgba(245, 158, 11, 0.16);
+  border: 4px solid rgba(245, 158, 11, 0.9);
+}
+.inclusion-diagram .ml {
+  width: 620px;
+  height: 390px;
+  left: 70px;
+  top: 70px;
+  background: rgba(59, 130, 246, 0.18);
+  border: 4px solid rgba(59, 130, 246, 0.9);
+}
+.inclusion-diagram .dl {
+  width: 445px;
+  height: 270px;
+  left: 157px;
+  top: 165px;
+  background: rgba(16, 185, 129, 0.20);
+  border: 4px solid rgba(16, 185, 129, 0.9);
+}
+.inclusion-diagram .genai {
+  width: 270px;
+  height: 155px;
+  left: 245px;
+  top: 255px;
+  background: rgba(168, 85, 247, 0.22);
+  border: 4px solid rgba(168, 85, 247, 0.95);
+  align-items: center;
+}
+.inclusion-diagram .genai span {
+  padding-top: 0;
+}
+.inclusion-diagram .hint {
+  position: absolute;
+  right: 18px;
+  bottom: 8px;
+  max-width: 230px;
+  font-size: 0.58em;
+  font-weight: 500;
+  color: #4b5563;
+  text-align: left;
+}
+</style>
+<div class="inclusion-diagram" aria-label="Diagramme d'inclusion : IA contient ML, qui contient DL, qui contient IA générative">
+  <div class="circle ai"><span>Intelligence artificielle<br><small>raisonner, percevoir, décider, agir</small></span></div>
+  <div class="circle ml"><span>Machine Learning<br><small>apprendre à partir des données</small></span></div>
+  <div class="circle dl"><span>Deep Learning<br><small>réseaux de neurones profonds</small></span></div>
+  <div class="circle genai"><span>IA générative<br><small>créer du texte, code, image, audio...</small></span></div>
+  <div class="hint">Lecture : chaque cercle est inclus dans le précédent, mais ne le résume pas entièrement.</div>
+</div>
+```
 
-3. Choose the format:
+## 1. Intelligence artificielle : le périmètre le plus large
 
-   - `onyxia-revealjs` ([light mode](https://inseefrlab.github.io/onyxia-quarto/))
-   - `onyxia-dark-revealjs` ([dark mode](https://inseefrlab.github.io/onyxia-quarto/dark-mode.html))
+::: {.columns}
+::: {.column width="55%"}
+**Idée clé**  
+Faire réaliser par une machine des tâches associées à des capacités humaines : percevoir, raisonner, planifier, dialoguer, décider.
+:::
 
-. . .
+::: {.column width="45%"}
+**Exemples**
 
-4. ``` bash
-   quarto render mydocument.qmd
-   ```
+- règles métier et systèmes experts ;
+- optimisation et planification ;
+- agents conversationnels ;
+- vision par ordinateur.
+:::
+:::
 
-. . .
+::: {.callout-note}
+Tout système d'IA n'apprend pas forcément à partir des données : certaines IA reposent surtout sur des règles explicites.
+:::
 
-5. Read the [Quarto documentation on reveal.js format](https://quarto.org/docs/presentations/revealjs/)
+## 2. Machine Learning : apprendre des régularités
+
+**Machine Learning = une famille de méthodes où le modèle apprend à partir d'exemples.**
+
+::: {.incremental}
+- On fournit des données : historiques, images, textes, signaux, logs...
+- Le modèle apprend des régularités statistiques.
+- On l'utilise ensuite pour prédire, classer, recommander ou détecter.
+:::
+
+::: {.callout-tip}
+Question typique : « à partir de ce que j'ai déjà observé, que puis-je anticiper sur un nouveau cas ? »
+:::
+
+## 3. Deep Learning : apprendre des représentations complexes
+
+::: {.columns}
+::: {.column width="50%"}
+**Deep Learning = sous-ensemble du ML** fondé sur des réseaux de neurones avec plusieurs couches.
+:::
+
+::: {.column width="50%"}
+Il est particulièrement puissant pour les données peu structurées :
+
+- texte ;
+- image ;
+- audio ;
+- vidéo ;
+- code.
+:::
+:::
+
+::: {.fragment}
+Le deep learning a rendu possibles les grands modèles de langage et les modèles multimodaux modernes.
+:::
+
+## 4. IA générative : produire du contenu nouveau
+
+**IA générative = modèles capables de générer de nouveaux contenus plausibles à partir d'une consigne, d'un contexte ou d'exemples.**
+
+::: {.incremental}
+- Texte : synthèse, rédaction, traduction, extraction.
+- Code : aide au développement, documentation, tests.
+- Image / audio / vidéo : création, variation, transformation.
+- Données : génération de scénarios, augmentation de jeux de données.
+:::
+
+::: {.callout-warning}
+« Générer » ne veut pas dire « garantir la vérité » : ces modèles produisent des réponses probables, à contrôler selon l'usage.
+:::
+
+## À retenir pour la suite du séminaire
+
+::: {.columns}
+::: {.column width="50%"}
+**L'entonnoir conceptuel**
+
+1. IA : objectif général.
+2. ML : apprentissage depuis les données.
+3. DL : réseaux profonds.
+4. IA générative : production de contenu.
+:::
+
+::: {.column width="50%"}
+**Implication métier**
+
+- choisir les bons cas d'usage ;
+- distinguer automatisation, prédiction et génération ;
+- cadrer les risques : qualité, confidentialité, biais, traçabilité.
+:::
+:::
+
+## Transition
+
+Maintenant que le vocabulaire est posé, on peut regarder :
+
+::: {.incremental}
+- ce que l'IA générative change concrètement ;
+- les cas d'usage pertinents pour nos métiers ;
+- les limites à connaître avant de passer à l'échelle.
+:::
